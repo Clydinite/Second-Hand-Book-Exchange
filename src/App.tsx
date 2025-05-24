@@ -18,7 +18,9 @@ const books = [
     course: "MATH101",
     condition: "Brand New",
     price: Math.floor(Math.random() * (1200 - 400 + 1)) + 400,
-    image: "https://picsum.photos/1080/1920",
+    image: `https://picsum.photos/300/500?random=${Math.floor(
+      Math.random() * 100
+    )}`,
   },
   {
     id: Math.floor(Math.random() * 1000000000),
@@ -27,7 +29,9 @@ const books = [
     course: "CHEM101",
     condition: "Used",
     price: Math.floor(Math.random() * (1200 - 400 + 1)) + 400,
-    image: "https://picsum.photos/1080/1920",
+    image: `https://picsum.photos/300/500?random=${Math.floor(
+      Math.random() * 100
+    )}`,
   },
   {
     id: Math.floor(Math.random() * 1000000000),
@@ -36,7 +40,9 @@ const books = [
     course: "CS102",
     condition: "With Notes",
     price: Math.floor(Math.random() * (1200 - 400 + 1)) + 400,
-    image: "https://picsum.photos/1080/1920",
+    image: `https://picsum.photos/300/500?random=${Math.floor(
+      Math.random() * 100
+    )}`,
   },
   {
     id: Math.floor(Math.random() * 1000000000),
@@ -45,7 +51,9 @@ const books = [
     course: "MATH101",
     condition: "Used",
     price: Math.floor(Math.random() * (1200 - 400 + 1)) + 400,
-    image: "https://picsum.photos/1080/1920",
+    image: `https://picsum.photos/300/500?random=${Math.floor(
+      Math.random() * 100
+    )}`,
   },
   {
     id: Math.floor(Math.random() * 1000000000),
@@ -54,7 +62,9 @@ const books = [
     course: "CS101",
     condition: "With Notes",
     price: Math.floor(Math.random() * (1200 - 400 + 1)) + 400,
-    image: "https://picsum.photos/1080/1920",
+    image: `https://picsum.photos/300/500?random=${Math.floor(
+      Math.random() * 100
+    )}`,
   },
   {
     id: Math.floor(Math.random() * 1000000000),
@@ -63,7 +73,9 @@ const books = [
     course: "CS202",
     condition: "Brand New",
     price: Math.floor(Math.random() * (1200 - 400 + 1)) + 400,
-    image: "https://picsum.photos/1080/1920",
+    image: `https://picsum.photos/300/500?random=${Math.floor(
+      Math.random() * 100
+    )}`,
   },
   {
     id: Math.floor(Math.random() * 1000000000),
@@ -72,7 +84,9 @@ const books = [
     course: "CS203",
     condition: "Used",
     price: Math.floor(Math.random() * (1200 - 400 + 1)) + 400,
-    image: "https://picsum.photos/1080/1920",
+    image: `https://picsum.photos/300/500?random=${Math.floor(
+      Math.random() * 100
+    )}`,
   },
   {
     id: Math.floor(Math.random() * 1000000000),
@@ -81,7 +95,9 @@ const books = [
     course: "CS204",
     condition: "With Notes",
     price: Math.floor(Math.random() * (1200 - 400 + 1)) + 400,
-    image: "https://picsum.photos/1080/1920",
+    image: `https://picsum.photos/300/500?random=${Math.floor(
+      Math.random() * 100
+    )}`,
   },
   {
     id: Math.floor(Math.random() * 1000000000),
@@ -90,7 +106,9 @@ const books = [
     course: "CS205",
     condition: "Brand New",
     price: Math.floor(Math.random() * (1200 - 400 + 1)) + 400,
-    image: "https://picsum.photos/1080/1920",
+    image: `https://picsum.photos/300/500?random=${Math.floor(
+      Math.random() * 100
+    )}`,
   },
 ];
 
@@ -122,17 +140,28 @@ export default function TextbookExchange() {
 
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-      <div className="relative min-h-screen  text-white overflow-hidden">
-        {/* Soft light effect */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(255,255,255,0.05)_0%,_transparent_70%)] mix-blend-soft-light pointer-events-none z-0" />
+      <div className="relative overflow-hidden min-h-screen bg-gray-950 text-white">
+        {/* BLOBS */}
+        <div className="absolute z-10 inset-0 overflow-hidden">
+          <div className="absolute top-[-5rem] left-[-5rem] w-[20rem] h-[20rem] bg-pink-500 opacity-15 rounded-full filter blur-3xl mix-blend-multiply animate-blob" />
+          <div className="absolute top-[10rem] left-[25rem] w-[20rem] h-[20rem] bg-blue-500 opacity-15 rounded-full filter blur-3xl mix-blend-multiply animate-blob" />
+          <div className="absolute top-[25rem] left-[5rem] w-[20rem] h-[20rem] bg-green-500 opacity-15 rounded-full filter blur-3xl mix-blend-multiply animate-blob" />
+        </div>
 
-        {/* Main content */}
-        <div className="relative z-10 p-6 space-y-8 max-w-screen-xl mx-auto">
-          <h1 className="text-4xl font-extrabold bg-clip-text to-indigo-400">
-            Textbook Exchange
-          </h1>
+        {/* MAIN UI */}
+        <div className="p-6 max-w-screen-xl mx-auto z-10 relative">
+          {/* TITLE */}
+          <div>
+            <h1 className="text-5xl font-extrabold drop-shadow-md">
+              Book Exchange
+            </h1>
+            <p className="text-muted-foreground text-lg mt-4 mb-6">
+              Trade books with students, by students.
+            </p>
+          </div>
 
-          <div className="grid md:grid-cols-3 gap-4 select-none">
+          {/* SEARCH & FILTERS */}
+          <div className="grid md:grid-cols-3 gap-4 select-none mb-6">
             <Input
               placeholder="Search by title, course ID or ISBN"
               value={search}
@@ -141,40 +170,44 @@ export default function TextbookExchange() {
             />
 
             <div className="flex flex-col justify-between">
-              <label className="text-muted-foreground my-2">
-                Price: ${priceRange[0]} ~ ${priceRange[1]} NTD
-              </label>
-              <Slider
-                min={0}
-                max={2000}
-                step={50}
-                value={priceRange}
-                onValueChange={setPriceRange}
-              />
-            </div>
-
-            <div className="space-y-2">
-              {conditions.map((condition) => (
-                <label
-                  key={condition}
-                  className="flex items-center space-x-2 text-muted-foreground"
-                >
-                  <Checkbox
-                    checked={selectedCondition.includes(condition)}
-                    onCheckedChange={(checked) =>
-                      setSelectedCondition(
-                        checked
-                          ? [...selectedCondition, condition]
-                          : selectedCondition.filter((c) => c !== condition)
-                      )
-                    }
-                  />
-                  <span>{condition}</span>
+              
+              <div className="flex flex-col mb-4">
+                <label className="text-muted-foreground my-2">
+                  Price: ${priceRange[0]} ~ ${priceRange[1]} NTD
                 </label>
-              ))}
+                <Slider
+                  min={0}
+                  max={2000}
+                  step={50}
+                  value={priceRange}
+                  onValueChange={setPriceRange}
+                />
+              </div>
+
+              <div className="space-y-2">
+                {conditions.map((condition) => (
+                  <label
+                    key={condition}
+                    className="flex items-center space-x-2 text-muted-foreground"
+                  >
+                    <Checkbox
+                      checked={selectedCondition.includes(condition)}
+                      onCheckedChange={(checked) =>
+                        setSelectedCondition(
+                          checked
+                            ? [...selectedCondition, condition]
+                            : selectedCondition.filter((c) => c !== condition)
+                        )
+                      }
+                    />
+                    <span>{condition}</span>
+                  </label>
+                ))}
+              </div>
             </div>
           </div>
 
+          {/* BOOK CARDS */}
           <div className="grid md:grid-cols-3 gap-6">
             <AnimatePresence mode="popLayout">
               {filteredBooks.length > 0 ? (
@@ -187,7 +220,7 @@ export default function TextbookExchange() {
                       exit={{ opacity: 0, scale: 0.95 }}
                       transition={{ duration: 0.2 }}
                     >
-                      <Card className="hover:scale-[1.02] transition-transform overflow-hidden p-4 border border-neutral-700 bg-neutral-800/50 backdrop-blur-sm rounded-2xl shadow-md">
+                      <Card className="hover:scale-[1.02] transition-transform overflow-hidden p-4 border border-white/10 bg-white/5 backdrop-blur-md rounded-2xl shadow-lg">
                         <div className="flex items-center">
                           <img
                             src={book.image}
