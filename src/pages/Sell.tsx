@@ -7,7 +7,13 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 const conditions = [
   "Brand New",
@@ -45,22 +51,23 @@ export default function TextbookSellPage() {
 
   return (
     <div className="p-6 max-w-screen-md mx-auto z-10 relative">
-      {/* TITLE */}
-      <div>
-        <h1 className="text-4xl md:text-5xl font-extrabold drop-shadow-md">
-          Sell a Textbook
-        </h1>
-        <p className="text-muted-foreground text-lg mt-4 mb-6">
-          Let others buy your books – fast and easy.
-        </p>
-      </div>
-
-      {/* FORM */}
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3 }}
       >
+        {/* TITLE */}
+        <div>
+          <h1 className="text-4xl md:text-5xl font-extrabold drop-shadow-md">
+            Sell a Textbook
+          </h1>
+          <p className="text-muted-foreground text-lg mt-4 mb-6">
+            Let others buy your books – fast and easy.
+          </p>
+        </div>
+
+        {/* FORM */}
+
         <Card className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl shadow-xl p-6 space-y-6">
           <div>
             <Label className="m-2">Title</Label>
@@ -161,7 +168,10 @@ export default function TextbookSellPage() {
           </div>
 
           <div className="pt-4">
-            <Button onClick={handleSubmit} className="w-full rounded-xl text-lg py-6">
+            <Button
+              onClick={handleSubmit}
+              className="w-full rounded-xl text-lg py-6"
+            >
               Submit Book Listing
             </Button>
           </div>
@@ -170,4 +180,3 @@ export default function TextbookSellPage() {
     </div>
   );
 }
-

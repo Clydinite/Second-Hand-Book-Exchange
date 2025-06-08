@@ -10,4 +10,13 @@ createRoot(document.getElementById('root')!).render(
   </StrictMode>,
 )
 
+export type Book = {
+  id: number;
+  title: string;
+  isbn: string;
+  courseId: string;
+  condition: string;
+  price: number;
+  image: string;
+};
 
