@@ -8,7 +8,7 @@ export default function Welcome() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="flex h-screen items-center justify-center bg-glass bg-opacity-50 backdrop-blur-md rounded-2xl px-4"
+      className="flex h-[calc(100dvh-72px)] items-center justify-center bg-glass bg-opacity-50 backdrop-blur-md rounded-2xl px-4"
     >
       <div className="flex flex-col items-center text-center max-w-5xl w-full">
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-12">

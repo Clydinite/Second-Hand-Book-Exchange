@@ -97,7 +97,7 @@ function DrawerDialog({ book }: { book: Book }) {
         <div className="text-xl font-bold text-green-400">
           <span className="text-white/80">Price:</span> ${book.price}
         </div>
-        <div className="mt-5">
+        <div className="mt-5 mb-20 md:mb-0">
           <Button
             variant="default"
             className="w-full"
@@ -107,7 +107,7 @@ function DrawerDialog({ book }: { book: Book }) {
                 `Inquiry about "${book.title}"`
               );
               const body = encodeURIComponent(
-                `Hi,\n\nI'm interested in your textbook "${book.title}" (${book.isbn}). Could you please provide more details?\n\nThanks!`
+                `Hi,\n\nI'm interested in buying your "${book.title}" (ISBN: ${book.isbn}) textbook. Would you be available to meet at [LOCATION] on [DATE]?\n\nThanks for your time.`
               );
               window.open(`mailto:${email}?subject=${subject}&body=${body}`);
             }}
@@ -132,18 +132,7 @@ function DrawerDialog({ book }: { book: Book }) {
     return (
       <Drawer open={open} onOpenChange={setOpen}>
         <DrawerTrigger asChild>{trigger}</DrawerTrigger>
-        <DrawerContent className="p-0">
-          {content}
-          <div className="p-5">
-            <Button
-              variant="outline"
-              className="w-full"
-              onClick={() => setOpen(false)}
-            >
-              Close
-            </Button>
-          </div>
-        </DrawerContent>
+        <DrawerContent className="p-0">{content}</DrawerContent>
       </Drawer>
     );
   }
