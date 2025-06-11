@@ -46,7 +46,7 @@ export default function TextbookSellPage() {
 
     console.log("Submitted book:", bookData);
     // Replace this with your real submission logic
-    alert("Your book has been submitted!");
+    alert("😅 This is a demo. Submitting books to the database in is not actually implemented.");
   };
 
   return (
@@ -107,7 +107,7 @@ export default function TextbookSellPage() {
             <Slider
               min={0}
               max={2000}
-              step={50}
+              step={10}
               value={[price]}
               onValueChange={(v) => setPrice(v[0])}
               className="my-4"

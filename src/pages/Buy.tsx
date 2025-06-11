@@ -27,7 +27,7 @@ function BookCard({ book }: { book: Book }) {
         className="w-32 h-48 object-cover rounded-xl shadow-inner"
       />
       <CardContent className="flex-1 space-y-2">
-        <div className="font-semibold text-xl md:text-2xl text-white">
+        <div className="font-semibold text-md md:text-lg text-white">
           {book.title}
         </div>
         <div className="text-sm text-gray-400">
@@ -64,7 +64,7 @@ function DrawerDialog({ book }: { book: Book }) {
         src={book.image}
         alt={book.title}
         className={`rounded-xl shadow-inner object-cover ${
-          isDesktop ? "w-48 h-72" : "w-full h-56"
+          isDesktop ? "w-48 h-72" : "w-36 h-48 mx-auto"
         }`}
       />
 
