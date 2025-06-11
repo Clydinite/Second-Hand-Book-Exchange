@@ -5,6 +5,7 @@ import { defineConfig } from "vite";
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: process.env.VITE_BASE_URL || '/', // This would be set with `VITE_BASE_URL=/Second-Hand-Book-Exchange/ npm run build` on builds to GitHub Pages
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
