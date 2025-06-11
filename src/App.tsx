@@ -1,10 +1,12 @@
 import {
-  BrowserRouter as Router,
+  BrowserRouter,
+  HashRouter,
   Routes,
   Route,
   Link,
   useLocation,
 } from "react-router-dom";
+
 import { ThemeProvider } from "./components/theme-provider";
 import { useState } from "react";
 
@@ -12,6 +14,9 @@ import Buy from "./pages/Buy";
 import Sell from "./pages/Sell";
 import Welcome from "./pages/Welcome";
 import Login from "./pages/Login";
+
+const routerType = import.meta.env.VITE_ROUTER_TYPE ?? "browser";
+const Router = routerType === "hash" ? HashRouter : BrowserRouter;
 
 function Nav() {
   const location = useLocation();
