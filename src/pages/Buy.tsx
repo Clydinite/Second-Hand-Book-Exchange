@@ -37,7 +37,7 @@ function BookCard({ book }: { book: Book }) {
           <span className="text-white/80">ISBN:</span> {book.isbn}
         </div>
         <div className="text-sm text-yellow-300">{book.condition}</div>
-        <div className="text-xl font-bold text-green-400">${book.price}</div>
+        <div className="text-xl font-bold text-green-400">${book.price} NTD</div>
         <DrawerDialog book={book} />
       </CardContent>
     </Card>
@@ -95,7 +95,7 @@ function DrawerDialog({ book }: { book: Book }) {
           <span className="text-white/80">Description:</span> {book.description}
         </div>
         <div className="text-xl font-bold text-green-400">
-          <span className="text-white/80">Price:</span> ${book.price}
+          <span className="text-white/80">Price:</span> ${book.price} NTD
         </div>
         <div className="mt-5 mb-20 md:mb-0">
           <Button
